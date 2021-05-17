@@ -91,6 +91,14 @@ a:hover {
     margin: 20px;
     text-align: justify;
 }
+.dark-description {
+    background-color: rgb(214, 214, 214);
+    color: rgb(48, 48, 48);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    text-align: justify;
+}
 .action-buttons {
     margin: 20px;
     text-align: right;
@@ -150,4 +158,8 @@ a:hover {
 }
 .editor:focus{
     outline: none;
+}
+.main-image {
+    height: 170px;
+    width: 200px;
 }

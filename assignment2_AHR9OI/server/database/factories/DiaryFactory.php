@@ -23,7 +23,7 @@ class DiaryFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'date'  => $this->faker->dateTimeThisMonth()->format('Y-m-d H:i:s'),
+            'date'  => $this->faker->dateTimeThisMonth()->format('Y-m-d'),
             'text'  => $this->faker->sentence(),
         ];
     }

@@ -1,9 +1,16 @@
 <!-- main page -->
 <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-4">{{ title }}</h1>
-      <p class="lead">Save your diaries!</p>
-      <p><a class="btn btn-primary" href="diaries/new" role="button">New Diary</a></p>
+    <div class="row">
+      <div class="col col-lg-9">
+        <h1 class="display-4">{{ app_title }}</h1>
+        <div class="dark-description">
+          {{ app_description }}
+        </div>
+      </div>
+      <div class="col">
+        <img class="main-image mt-4" src="assets/img/diary.png">
+      </div>
     </div>
   </div>
+  <p><i><b>{{ filteredDiaries.length }}</b> entries between {{ earliest_date }} and {{ latest_date }}</i></p>
   

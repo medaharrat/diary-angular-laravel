@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DiaryDetailComponent } from './diary-detail/diary-detail.component';
 import { DiaryEditComponent } from './diary-edit/diary-edit.component';
-import { DiaryFormComponent } from './diary-form/diary-form.component';
 import { DiaryListComponent } from './diary-list/diary-list.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
@@ -18,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'diaries/new',
-    component: DiaryFormComponent,
+    component: DiaryEditComponent,
   },
   {
     path: 'diary/:id',

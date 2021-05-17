@@ -14,7 +14,7 @@ class DiaryController extends Controller
      */
     public function index()
     {
-        return Diary::all();
+        return Diary::orderBy('date', 'desc')->get();
     }
 
     /**

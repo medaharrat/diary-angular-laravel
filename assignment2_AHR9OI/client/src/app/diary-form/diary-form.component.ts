@@ -13,10 +13,18 @@ export class DiaryFormComponent implements OnInit, OnChanges {
 
   constructor(private fb: FormBuilder) {}
 
+  formatDate = (date) => {
+    let d = date.getDate();
+    let m = date.getMonth() + 1;
+    let y = date.getFullYear();
+
+    return (y + "-" + m + "-" + d);
+  }
+  
   diaryForm = this.fb.group({
     title: ['', [Validators.required]],
     text: ['', [Validators.required]],
-    date: ['', [Validators.required]],
+    date: [''],
   });
 
   get title(): AbstractControl {
@@ -36,7 +44,9 @@ export class DiaryFormComponent implements OnInit, OnChanges {
   }
 
   onSubmit(): void {
-    console.log(this.diaryForm);
+    this.diaryForm.controls['date'].setValue(this.formatDate(new Date()));
+    console.log(this.diaryForm)
+
     if (this.diaryForm.valid) {
       this.save.emit(this.diaryForm.value);
     }
