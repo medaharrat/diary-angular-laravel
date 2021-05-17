@@ -1,0 +1,24 @@
+<div class="fieldset">
+  <div class="fieldset-header row">
+    <div class="typography col">
+      <h4 class="bold">{{ diary.title.charAt(0).toUpperCase() + diary.title.slice(1) }}</h4>
+    </div>
+    <div class="action-buttons col">
+      <p>
+        <a class="btn appbtn-primary mx-2" [routerLink]="['/diary', diary.id, 'edit']" role="button">
+          <i class="fa fa-pen" aria-hidden="true"></i>
+        </a>
+        <button class="btn appbtn-danger" role="button" (click)="handleDelete()">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </p>
+    </div>
+  </div>
+  <div class="description">
+    <p>{{ diary.text }}</p>
+  </div>
+  <ul class="row">
+    <li><p><b>Published on:</b> {{ diary.date }}</p></li>
+  </ul>
+</div>
+  

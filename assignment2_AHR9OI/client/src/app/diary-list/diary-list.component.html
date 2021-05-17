@@ -1,0 +1,29 @@
+<!-- listing page -->
+<div class="row">
+  <div class="col col-lg-10">
+    <div class="display-4">My diaries</div>
+  </div>
+  <div class="col col-lg-2">
+    <a class="btn appbtn-primary col-lg-10" routerLink="/diaries/new" role="button">New Diary</a>
+  </div>
+</div>
+    
+<div class="row mt-5">
+  <div class="list-group col">
+    <a
+      *ngFor="let diary of diaries"
+      class="list-group-item list-group-item-action"
+      (click)="selectedDiary = diary"
+      [routerLink]="['/diary', diary.id]"
+    >
+      <div class="d-flex w-100 justify-content-between align-items-center">
+        <h5 class="mb-1">{{ diary.title }}</h5>
+      </div>
+      <p class="mb-1">{{ diary.text }}</p>
+      <small>{{ diary.date }}</small>
+    </a>
+  </div>
+  <div class="col" *ngIf="selectedDiary">
+    <app-diary-form [diary]="selectedDiary" (save)="handleSave($event)"></app-diary-form>
+  </div>
+</div>

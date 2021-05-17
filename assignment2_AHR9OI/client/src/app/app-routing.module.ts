@@ -1,10 +1,41 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DiaryDetailComponent } from './diary-detail/diary-detail.component';
+import { DiaryEditComponent } from './diary-edit/diary-edit.component';
+import { DiaryFormComponent } from './diary-form/diary-form.component';
+import { DiaryListComponent } from './diary-list/diary-list.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: MainPageComponent,
+  },
+  {
+    path: 'diaries',
+    component: DiaryListComponent,
+  },
+  {
+    path: 'diaries/new',
+    component: DiaryFormComponent,
+  },
+  {
+    path: 'diary/:id',
+    component: DiaryDetailComponent,
+  },
+  {
+    path: 'diary/:id/edit',
+    component: DiaryEditComponent,
+  },
+  {
+    path: 'about',
+    component: AboutPageComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
