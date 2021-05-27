@@ -1,4 +1,7 @@
-<div>
+<div *ngIf="msg" class="description">
+  <i>{{ msg }}</i>
+</div>
+<div *ngIf="!msg">
   <h2 class="display-2 my-3">{{ diary.id ? "Edit Diary" : "New Diary" }}</h2>
   <app-diary-form [diary]="diary" (save)="handleSave($event)"></app-diary-form>
 </div>

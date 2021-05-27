@@ -7,8 +7,13 @@
     <a class="btn appbtn-primary col-lg-10 mt-4" routerLink="/diaries/new" role="button">New Diary</a>
   </div>
 </div>
-    
+
+<div *ngIf="msg" class="description">
+  <i>{{ msg }}</i>
+</div>
+
 <div class="mt-5">
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-clip-rotate" [fullScreen] = "true"></ngx-spinner>
   <div class="list-group">
     <a
       *ngFor="let diary of diaries"
@@ -21,7 +26,13 @@
         <div class="d-flex w-100 justify-content-between align-items-center">
           <h5 class="mb-1">{{ diary.title }}</h5>
         </div>
-        <p class="mb-1">{{ diary.text }}</p>
+        <div class="mb-1">
+          <p>
+            {{ diary.text | slice:0:200 }}
+            <span *ngIf="diary.text.length > 200">...</span>
+          </p>
+          
+        </div>
         <small>{{ diary.date }}</small>
       </div>
   

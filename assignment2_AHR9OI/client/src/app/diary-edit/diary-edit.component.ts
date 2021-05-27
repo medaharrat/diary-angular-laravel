@@ -11,6 +11,7 @@ import { DiaryService } from '../diary.service';
 })
 export class DiaryEditComponent implements OnInit {
   diary = new Diary();
+  msg = "";
 
   constructor(
     private diaryService: DiaryService,
@@ -22,7 +23,14 @@ export class DiaryEditComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.diary = await this.diaryService.getDiary(+id);
+      await this.diaryService.getDiary(+id)
+      .then((data) => {
+        this.diary = data;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.msg = "Oops! Are you sure this diary exists?";
+      });
     }
   }
 

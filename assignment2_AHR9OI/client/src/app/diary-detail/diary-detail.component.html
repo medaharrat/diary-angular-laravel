@@ -1,4 +1,8 @@
-<div class="fieldset">
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-clip-rotate" [fullScreen] = "true"></ngx-spinner>
+<div *ngIf="msg" class="description">
+  <i>{{ msg }}</i>
+</div>
+<div class="fieldset" *ngIf="diary.title.length != 0">
   <div class="fieldset-header row">
     <div class="typography col">
       <h4 class="bold">{{ diary.title.charAt(0).toUpperCase() + diary.title.slice(1) }}</h4>
