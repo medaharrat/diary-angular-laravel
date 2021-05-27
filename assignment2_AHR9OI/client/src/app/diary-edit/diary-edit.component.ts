@@ -34,11 +34,20 @@ export class DiaryEditComponent implements OnInit {
     }
   }
 
+  formatDate = (date) => {
+    let d = date.getDate();
+    let m = date.getMonth() + 1;
+    let y = date.getFullYear();
+
+    return (y + "-" + m + "-" + d);
+  }
+  
   async handleSave(diary: Diary): Promise<void> {
     if (this.diary.id) {
       await this.diaryService.updateDiary(this.diary.id, diary);
       this.location.back();
     } else {
+      diary.date = this.formatDate(new Date());
       await this.diaryService.addDiary(diary);
       this.router.navigate(['/diaries']);
     }
